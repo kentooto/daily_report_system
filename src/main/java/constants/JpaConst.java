@@ -58,7 +58,8 @@ public interface JpaConst {
     String Q_EMP_COUNT_DEF = "SELECT COUNT(e) FROM Employee AS e";
     //社員番号とハッシュ化済パスワードを条件に未削除の従業員を取得する
     String Q_EMP_GET_BY_CODE_AND_PASS = ENTITY_EMP + ".getByCodeAndPass";
-    String Q_EMP_GET_BY_CODE_AND_PASS_DEF = "SELECT e FROM Employee AS e WHERE e.deleteFlag = 0 AND e.code = :" + JPQL_PARM_CODE + " AND e.password = :" + JPQL_PARM_PASSWORD;
+    String Q_EMP_GET_BY_CODE_AND_PASS_DEF = "SELECT e FROM Employee AS e WHERE e.deleteFlag = 0 AND e.code = :"
+            + JPQL_PARM_CODE + " AND e.password = :" + JPQL_PARM_PASSWORD;
     //指定した社員番号を保持する従業員の件数を取得する
     String Q_EMP_COUNT_REGISTERED_BY_CODE = ENTITY_EMP + ".countRegisteredByCode";
     String Q_EMP_COUNT_REGISTERED_BY_CODE_DEF = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :" + JPQL_PARM_CODE;
@@ -70,9 +71,41 @@ public interface JpaConst {
     String Q_REP_COUNT_DEF = "SELECT COUNT(r) FROM Report AS r";
     //指定した従業員が作成した日報を全件idの降順で取得する
     String Q_REP_GET_ALL_MINE = ENTITY_REP + ".getAllMine";
-    String Q_REP_GET_ALL_MINE_DEF = "SELECT r FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE + " ORDER BY r.id DESC";
+    String Q_REP_GET_ALL_MINE_DEF = "SELECT r FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE
+            + " ORDER BY r.id DESC";
     //指定した従業員が作成した日報の件数を取得する
     String Q_REP_COUNT_ALL_MINE = ENTITY_REP + ".countAllMine";
     String Q_REP_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+
+    //電話メモテーブル
+    String TABLE_TEL = "tel_memo"; //テーブル名
+    //電話メモテーブルカラム
+    String TEL_COL_ID = "id"; //id
+    String TEL_COL_TITLE = "title"; //電話の件名
+    String TEL_COL_EMP = "employee_id"; //電話メモを作成した従業員のid
+    String TEL_COL_TEL_DATE = "tel_memo_date"; //いつの電話かを示す日付
+    String TEL_COL_CUSTOMER = "customer"; //客先名（電話番号）
+    String TEL_COL_ATE = "atesaki_id"; //電話の宛先従業員のid
+    String TEL_COL_CONTENT = "content"; //電話の内容
+    String TEL_COL_CREATED_AT = "created_at"; //登録日時
+    String TEL_COL_UPDATED_AT = "updated_at"; //更新日時
+    String TEL_COL_MIT_AT = "mitayo_id"; //見た人のID
+
+    //Entity名
+    String ENTITY_TEL = "tel_memo"; //電話メモ
+
+  //全ての電話メモをidの降順に取得する
+    String Q_TEL_GET_ALL = ENTITY_TEL + ".getAll";
+    String Q_TEL_GET_ALL_DEF = "SELECT r FROM Report AS r ORDER BY r.id DESC";
+    //全ての電話メモの件数を取得する
+    String Q_TEL_COUNT = ENTITY_TEL + ".count";
+    String Q_TEL_COUNT_DEF = "SELECT COUNT(r) FROM Report AS r";
+    //指定した従業員が作成した電話メモを全件idの降順で取得する
+    String Q_TEL_GET_ALL_MINE = ENTITY_TEL + ".getAllMine";
+    String Q_TEL_GET_ALL_MINE_DEF = "SELECT r FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE
+            + " ORDER BY r.id DESC";
+    //指定した従業員が作成した電話メモの件数を取得する
+    String Q_TEL_COUNT_ALL_MINE = ENTITY_TEL + ".countAllMine";
+    String Q_TEL_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
 
 }

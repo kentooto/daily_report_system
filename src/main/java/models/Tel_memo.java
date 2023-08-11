@@ -1,6 +1,5 @@
 package models;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -99,13 +98,13 @@ public class Tel_memo {
      * 登録日時
      */
     @Column(name = JpaConst.TEL_COL_CREATED_AT, nullable = false)
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     /**
      * 更新日時
      */
     @Column(name = JpaConst.TEL_COL_UPDATED_AT, nullable = false)
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 
 
 }

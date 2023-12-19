@@ -89,23 +89,52 @@ public interface JpaConst {
     String TEL_COL_CONTENT = "content"; //電話の内容
     String TEL_COL_CREATED_AT = "created_at"; //登録日時
     String TEL_COL_UPDATED_AT = "updated_at"; //更新日時
-    String TEL_COL_MIT_AT = "mitayo_id"; //見た人のID
 
     //Entity名
     String ENTITY_TEL = "tel_memo"; //電話メモ
 
   //全ての電話メモをidの降順に取得する
     String Q_TEL_GET_ALL = ENTITY_TEL + ".getAll";
-    String Q_TEL_GET_ALL_DEF = "SELECT r FROM Report AS r ORDER BY r.id DESC";
+    String Q_TEL_GET_ALL_DEF = "SELECT r FROM Tel_memo AS r ORDER BY r.id DESC";
     //全ての電話メモの件数を取得する
     String Q_TEL_COUNT = ENTITY_TEL + ".count";
-    String Q_TEL_COUNT_DEF = "SELECT COUNT(r) FROM Report AS r";
+    String Q_TEL_COUNT_DEF = "SELECT COUNT(r) FROM Tel_memo AS r";
     //指定した従業員が作成した電話メモを全件idの降順で取得する
     String Q_TEL_GET_ALL_MINE = ENTITY_TEL + ".getAllMine";
-    String Q_TEL_GET_ALL_MINE_DEF = "SELECT r FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE
+    String Q_TEL_GET_ALL_MINE_DEF = "SELECT r FROM Tel_memo AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE
             + " ORDER BY r.id DESC";
     //指定した従業員が作成した電話メモの件数を取得する
     String Q_TEL_COUNT_ALL_MINE = ENTITY_TEL + ".countAllMine";
-    String Q_TEL_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+    String Q_TEL_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Tel_memo AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+
+
+    //リプライテーブル
+    String TABLE_REPL = "reply"; //テーブル名
+    //リプライテーブルカラム
+    String REPL_COL_ID = "id"; //id
+    String REPL_COL_EMP = "employee_id"; //リプライを作成した従業員のid
+    String REPL_COL_TEL_DATE = "reply"; //いつのリプライかを示す日付
+    String REPL_COL_CONTENT = "content"; //電話の内容
+    String REPL_COL_CREATED_AT = "created_at"; //登録日時
+    String REPL_COL_UPDATED_AT = "updated_at"; //更新日時
+    String REPL_COL_MIT_AT = "mitayo_id"; //見た人のID
+
+    //Entity名
+    String ENTITY_REPL = "reply"; //電話メモ
+
+  //全ての電話メモをidの降順に取得する
+    String Q_REPL_GET_ALL = ENTITY_REPL + ".getAll";
+    String Q_REPL_GET_ALL_DEF = "SELECT r FROM Reply AS r ORDER BY r.id DESC";
+    //全ての電話メモの件数を取得する
+    String Q_REPL_COUNT = ENTITY_REPL + ".count";
+    String Q_REPL_COUNT_DEF = "SELECT COUNT(r) FROM Reply AS r";
+    //指定した従業員が作成した電話メモを全件idの降順で取得する
+    String Q_REPL_GET_ALL_MINE = ENTITY_REPL + ".getAllMine";
+    String Q_REPL_GET_ALL_MINE_DEF = "SELECT r FROM Reply AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE
+            + " ORDER BY r.id DESC";
+    //指定した従業員が作成した電話メモの件数を取得する
+    String Q_REPL_COUNT_ALL_MINE = ENTITY_REPL + ".countAllMine";
+    String Q_REPL_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Reply AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+
 
 }

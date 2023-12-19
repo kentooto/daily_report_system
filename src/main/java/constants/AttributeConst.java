@@ -10,12 +10,10 @@ public enum AttributeConst {
     FLUSH("flush"),
 
     //一覧画面共通
-    MAX_ROW("maxRow"),
-    PAGE("page"),
+    MAX_ROW("maxRow"), PAGE("page"),
 
     //入力フォーム共通
-    TOKEN("_token"),
-    ERR("errors"),
+    TOKEN("_token"), ERR("errors"),
 
     //ログイン中の従業員
     LOGIN_EMP("login_employee"),
@@ -28,7 +26,7 @@ public enum AttributeConst {
     EMPLOYEES("employees"),
     EMP_COUNT("employees_count"),
     EMP_ID("id"),
-    EMP_CODE("code"),
+    EMP_CODE( "code"),
     EMP_PASS("password"),
     EMP_NAME("name"),
     EMP_ADMIN_FLG("admin_flag"),
@@ -47,8 +45,28 @@ public enum AttributeConst {
     REP_COUNT("reports_count"),
     REP_ID("id"),
     REP_DATE("report_date"),
-    REP_TITLE("title"),
-    REP_CONTENT("content_msg");
+    REP_TITLE( "title"),
+    REP_CONTENT("content_msg"),
+
+    //電話メモ管理
+    TEL("tel"),
+    TELS("tels"),
+    TEL_COUNT("tels_count"),
+    TEL_ID("id"),
+    TEL_DATE("tel_date"),
+    TEL_TITLE( "title"),
+    TEL_CONTENT("tel_content"),
+    TEL_CUSTOMER("customer"),
+    TEL_ATE_ID("atesaki_id"),
+
+    //リプライ管理
+    REPLY("reply"),
+    REPLYS("replys"),
+    REPLYS_COUNT("replys_count"),
+    MITA_ID("mita_id"),
+    REPLY_DATE("reply_date"),
+    REPLY_ID("reply_id"),
+    REPLY_CONTENT("reply_content");
 
     private final String text;
     private final Integer i;

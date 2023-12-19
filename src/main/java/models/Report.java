@@ -62,6 +62,8 @@ public class Report {
     @ManyToOne
     @JoinColumn(name = JpaConst.REP_COL_EMP, nullable = false)
     private Employee employee;
+    
+    
 
     /**
      * いつの日報かを示す日付

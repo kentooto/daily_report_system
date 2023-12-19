@@ -22,12 +22,10 @@ public class TelService extends ServiceBase {
      * @param page ページ数
      * @return 一覧画面に表示するデータのリスト
      */
-    public List<TelView> getMinePerPage(EmployeeView employee, int page) {
+    public List<TelView> getMinePerPage(EmployeeView employee ) {
 
         List<Tel_memo> tel_memo = em.createNamedQuery(JpaConst.Q_TEL_GET_ALL_MINE, Tel_memo.class)
                 .setParameter(JpaConst.JPQL_PARM_EMPLOYEE, EmployeeConverter.toModel(employee))
-                .setFirstResult(JpaConst.ROW_PER_PAGE * (page - 1))
-                .setMaxResults(JpaConst.ROW_PER_PAGE)
                 .getResultList();
         return TelConverter.toViewList(tel_memo);
     }
@@ -51,10 +49,10 @@ public class TelService extends ServiceBase {
      * @param page ページ数
      * @return 一覧画面に表示するデータのリスト
      */
-    public List<TelView> getAllPerPage(int page) {
+    public List<TelView> getAllPerPage(int telpage) {
 
         List<Tel_memo> tel_memo = em.createNamedQuery(JpaConst.Q_TEL_GET_ALL, Tel_memo.class)
-                .setFirstResult(JpaConst.ROW_PER_PAGE * (page - 1))
+                .setFirstResult(JpaConst.ROW_PER_PAGE * (telpage - 1))
                 .setMaxResults(JpaConst.ROW_PER_PAGE)
                 .getResultList();
         return TelConverter.toViewList(tel_memo);
@@ -65,9 +63,9 @@ public class TelService extends ServiceBase {
      * @return データの件数
      */
     public long countAll() {
-        long tel_memo_count = (long) em.createNamedQuery(JpaConst.Q_TEL_COUNT, Long.class)
+        long tels_count = (long) em.createNamedQuery(JpaConst.Q_TEL_COUNT, Long.class)
                 .getSingleResult();
-        return tel_memo_count;
+        return tels_count;
     }
 
 
@@ -143,6 +141,12 @@ public class TelService extends ServiceBase {
         Tel_memo t = findOneInternal(tv.getId());
         TelConverter.copyViewToModel(t, tv);
         em.getTransaction().commit();
+
+    }
+
+
+    public TelView findOne(int id) {
+        return TelConverter.toView(findOneInternal(id));
 
     }
 

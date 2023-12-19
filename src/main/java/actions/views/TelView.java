@@ -1,12 +1,12 @@
 package actions.views;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import models.Employee;
 
 /**
  * 日報情報について画面の入力値・出力値を扱うViewモデル
@@ -46,7 +46,7 @@ public class TelView {
     /**
      * 電話の宛先従業員
      */
-    private Employee atesaki_id;
+    private EmployeeView atesaki_id;
 
     /**
      * 電話メモの内容
@@ -62,4 +62,11 @@ public class TelView {
      * 更新日時
      */
     private LocalDateTime updatedAt;
-}
+
+    public String getFmtTel_date() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        return this.tel_memo_date.format(dtf);
+    }
+
+    }
+

@@ -23,7 +23,7 @@ public class TelConverter {
                 EmployeeConverter.toModel(tv.getEmployee()),
                 tv.getTel_memo_date(),
                 tv.getCustomer(),
-                tv.getAtesaki_id(),
+                EmployeeConverter.toModel(tv.getAtesaki_id()),
                 tv.getContent(),
                 tv.getCreatedAt(),
                 tv.getUpdatedAt());
@@ -46,7 +46,7 @@ public class TelConverter {
                 EmployeeConverter.toView(t.getEmployee()),
                 t.getTel_memo_date(),
                 t.getCustomer(),
-                t.getAtesaki_id(),
+                EmployeeConverter.toView(t.getAtesaki_id()),
                 t.getContent(),
                 t.getCreatedAt(),
                 t.getUpdatedAt());
@@ -74,11 +74,11 @@ public class TelConverter {
      */
     public static void copyViewToModel(Tel_memo t, TelView tv) {
         t.setId(tv.getId());
-        t.setEmployee(EmployeeConverter.toModel(tv.getEmployee()));
+        EmployeeConverter.toView(t.getEmployee());
         t.setTitle(tv.getTitle());
         t.setTel_memo_date(tv.getTel_memo_date());
         t.setCustomer(tv.getCustomer());
-        t.setAtesaki_id(tv.getAtesaki_id());
+        EmployeeConverter.toView(t.getAtesaki_id());
         t.setContent(tv.getContent());
         t.setCreatedAt(tv.getCreatedAt());
         t.setUpdatedAt(tv.getUpdatedAt());
